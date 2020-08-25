@@ -4,6 +4,8 @@ abstract class AuthLayout
   abstract def content
   abstract def page_title
 
+  needs current_user : User?
+
   # The default page title. It is passed to `Shared::LayoutHead`.
   #
   # Add a `page_title` method to pages to override it. You can also remove
@@ -20,8 +22,13 @@ abstract class AuthLayout
 
       body do
         m Shared::FlashMessages, context.flash
-        m Shared::GuestNavbar
-        content
+        m Shared::Navbar, user: current_user
+
+        main do
+          div class: "max-w-7xl mx-auto py-6 sm:px-6 lg:px-8" do
+            content
+          end
+        end
       end
     end
   end

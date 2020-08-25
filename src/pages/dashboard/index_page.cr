@@ -1,4 +1,4 @@
-class Dashboard::IndexPage < MainLayout
+class Dashboard::IndexPage < AuthLayout
   def page_title
     "Dashboard"
   end
@@ -10,7 +10,11 @@ class Dashboard::IndexPage < MainLayout
       end
 
       div class: "px-4 py-5 sm:p-6" do
-        h3 "We should put some content here..."
+        if (user = current_user)
+          h3 "Welcome, #{user.email}!"
+        else
+          h3 "You should sign up to see things here!"
+        end
       end
     end
   end
