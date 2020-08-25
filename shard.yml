@@ -1,12 +1,12 @@
-name: my_app
+name: method_overloading
 version: 0.1.0
 
 authors:
   - your-name-here <your-email-here>
 
 targets:
-  my_app:
-    main: src/my_app.cr
+  method_overloading:
+    main: src/method_overloading.cr
 
 crystal: 0.35.0
 

@@ -1,4 +1,4 @@
-database_name = "my_app_#{Lucky::Env.name}"
+database_name = "method_overloading_#{Lucky::Env.name}"
 
 AppDatabase.configure do |settings|
   if Lucky::Env.production?
